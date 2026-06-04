@@ -77,6 +77,8 @@ apis:
         url: https://borealisdata.ca/guides/en/latest/api/native-api.html
       - type: OAI-PMH
         url: https://borealisdata.ca/oai?verb=Identify
+      - type: OpenAPI
+        url: openapi/queens-university-at-kingston-dataverse.yaml
 common:
   - type: Website
     url: https://www.queensu.ca/

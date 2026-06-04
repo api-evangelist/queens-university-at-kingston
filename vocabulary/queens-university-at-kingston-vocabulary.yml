@@ -1,0 +1,52 @@
+vocabulary:
+  name: Queen's University at Kingston API Vocabulary
+  description: >-
+    Core terms used across Queen's University's open research-data and repository
+    APIs, centered on the Queen's University Dataverse (Dataverse native REST API,
+    hosted on Borealis) and related repository surfaces. Terms reflect the real
+    Dataverse data model observed against borealisdata.ca.
+  version: '1.0.0'
+  terms:
+    - term: Dataverse
+      definition: >-
+        A collection (container) within the Dataverse software that groups datasets
+        and sub-collections; the top-level Queen's collection has the alias "queens".
+      tags: [ collection, dataverse, container ]
+    - term: Dataset
+      definition: >-
+        A versioned container of research data files plus descriptive metadata,
+        identified by a persistent global identifier (DOI).
+      tags: [ dataset, doi, research-data ]
+    - term: DataFile
+      definition: >-
+        An individual file deposited within a dataset version, with checksum,
+        content type, and storage identifier.
+      tags: [ file, datafile, deposit ]
+    - term: DatasetVersion
+      definition: >-
+        A specific draft or published version of a dataset, carrying its metadata blocks and file list.
+      tags: [ version, dataset, metadata ]
+    - term: MetadataBlock
+      definition: >-
+        A named grouping of metadata fields (e.g. citation, geospatial) attached to a dataset version.
+      tags: [ metadata, citation, schema ]
+    - term: PersistentIdentifier
+      definition: >-
+        A durable global identifier (protocol + authority + identifier, typically a DOI) assigned to datasets and files.
+      tags: [ doi, identifier, persistence ]
+    - term: ResponseEnvelope
+      definition: >-
+        The standard wrapper returned by the native REST API containing "status" (OK or ERROR), "data", and an optional "message".
+      tags: [ envelope, response, status ]
+    - term: OAI-PMH
+      definition: >-
+        Open Archives Initiative Protocol for Metadata Harvesting; exposed by Borealis and QSpace for bulk metadata harvesting.
+      tags: [ harvesting, oai-pmh, interoperability ]
+    - term: SWORD
+      definition: >-
+        Simple Web-service Offering Repository Deposit protocol supported by Dataverse for programmatic deposit.
+      tags: [ deposit, sword, ingest ]
+    - term: Borealis
+      definition: >-
+        The Canadian Dataverse Repository infrastructure hosting the Queen's University Dataverse collection.
+      tags: [ borealis, hosting, canada ]

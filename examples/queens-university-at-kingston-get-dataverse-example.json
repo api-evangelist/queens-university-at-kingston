@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://borealisdata.ca/api/dataverses/queens"
+  },
+  "response": {
+    "status": "OK",
+    "data": {
+      "id": 41133,
+      "alias": "queens",
+      "name": "Queen's University Dataverse Collection",
+      "affiliation": "Queen's University",
+      "permissionRoot": true,
+      "description": "<p><strong>Queen's University Dataverse Collection</strong> is a multidisciplinary research data repository for the research outputs of Queen's faculty, students, and staff.</p>",
+      "dataverseType": "ORGANIZATIONS_INSTITUTIONS",
+      "isMetadataBlockRoot": false,
+      "isFacetRoot": false,
+      "ownerId": 1,
+      "creationDate": "2016-09-30T21:07:24Z",
+      "theme": {
+        "id": 12,
+        "logo": "Queens-resize_OdkKgy0K1.png",
+        "linkColor": "428BCA",
+        "textColor": "888888",
+        "backgroundColor": "ffffff",
+        "logoBackgroundColor": "ffffff"
+      },
+      "effectiveRequiresFilesToPublishDataset": false,
+      "isReleased": true
+    }
+  }
+}

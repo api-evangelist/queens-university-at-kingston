@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "qu": "https://www.queensu.ca/ns#",
+    "dv": "https://guides.dataverse.org/en/latest/api/ns#",
+    "schema": "https://schema.org/",
+
+    "institution": { "@id": "schema:CollegeOrUniversity" },
+    "name": "schema:name",
+    "url": { "@id": "schema:url", "@type": "@id" },
+    "description": "schema:description",
+    "affiliation": "schema:affiliation",
+
+    "Dataverse": "dv:Dataverse",
+    "Dataset": { "@id": "schema:Dataset" },
+    "DataFile": { "@id": "schema:DataDownload" },
+    "alias": "dv:alias",
+    "dataverseType": "dv:dataverseType",
+    "creationDate": { "@id": "schema:dateCreated", "@type": "schema:DateTime" },
+    "publicationDate": { "@id": "schema:datePublished", "@type": "schema:DateTime" },
+    "identifier": "schema:identifier",
+    "persistentId": { "@id": "schema:identifier" },
+    "isReleased": "dv:isReleased",
+    "ownerId": "dv:ownerId",
+    "version": "schema:version",
+    "status": "dv:status",
+    "data": "dv:data"
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "Queen's University at Kingston",
+  "url": "https://www.queensu.ca/",
+  "description": "Public research university in Kingston, Ontario, Canada, whose open research-data footprint is exposed through the Queen's University Dataverse collection on Borealis."
+}

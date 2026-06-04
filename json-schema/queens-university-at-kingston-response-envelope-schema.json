@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/queens-university-at-kingston/main/json-schema/queens-university-at-kingston-response-envelope-schema.json",
+  "title": "Dataverse API Response Envelope",
+  "description": "The standard response envelope returned by every endpoint of the Dataverse native REST API (observed against borealisdata.ca, Dataverse v6.8.1).",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "Outcome of the request.",
+      "enum": ["OK", "ERROR"]
+    },
+    "data": {
+      "description": "Payload of a successful request; object or array depending on the endpoint."
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable error message, present when status is ERROR."
+    }
+  },
+  "required": ["status"],
+  "additionalProperties": true
+}

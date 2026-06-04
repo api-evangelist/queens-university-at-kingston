@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://borealisdata.ca/api/dataverses/queens/contents"
+  },
+  "response": {
+    "status": "OK",
+    "data": [
+      { "type": "dataverse", "id": 57, "title": "Queen's University Library Research Data Archive Dataverse" },
+      { "type": "dataverse", "id": 87, "title": "Queen's University Biological Station Data Archive Dataverse" },
+      { "type": "dataverse", "id": 194, "title": "Steven Liss Dataverse" }
+    ]
+  }
+}

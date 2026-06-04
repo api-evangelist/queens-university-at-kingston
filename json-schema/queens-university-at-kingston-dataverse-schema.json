@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/queens-university-at-kingston/main/json-schema/queens-university-at-kingston-dataverse-schema.json",
+  "title": "Dataverse Collection",
+  "description": "A Dataverse collection object as returned in the data envelope of the Dataverse native REST API (observed against the Queen's University Dataverse on Borealis, Dataverse v6.8.1).",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer", "description": "Internal numeric identifier for the collection." },
+    "alias": { "type": "string", "description": "Short URL-safe identifier (e.g. 'queens')." },
+    "name": { "type": "string", "description": "Display name of the collection." },
+    "affiliation": { "type": "string", "description": "Affiliated organization." },
+    "permissionRoot": { "type": "boolean" },
+    "description": { "type": "string", "description": "HTML description of the collection." },
+    "dataverseType": {
+      "type": "string",
+      "description": "Category of the collection.",
+      "enum": ["UNCATEGORIZED", "RESEARCHERS", "RESEARCH_PROJECTS", "JOURNALS", "ORGANIZATIONS_INSTITUTIONS", "TEACHING_COURSES", "LABORATORY", "RESEARCH_GROUP", "DEPARTMENT"]
+    },
+    "isMetadataBlockRoot": { "type": "boolean" },
+    "isFacetRoot": { "type": "boolean" },
+    "ownerId": { "type": "integer", "description": "Numeric id of the parent collection." },
+    "creationDate": { "type": "string", "format": "date-time" },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "logo": { "type": "string" },
+        "linkColor": { "type": "string" },
+        "textColor": { "type": "string" },
+        "backgroundColor": { "type": "string" },
+        "logoBackgroundColor": { "type": "string" }
+      }
+    },
+    "effectiveRequiresFilesToPublishDataset": { "type": "boolean" },
+    "isReleased": { "type": "boolean" }
+  },
+  "required": ["id", "alias", "name"],
+  "additionalProperties": true
+}
