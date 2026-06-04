@@ -1,0 +1,99 @@
+---
+aid: queens-university-at-kingston
+name: Queen's University at Kingston
+description: >-
+  Queen's University at Kingston is a public research university in Kingston,
+  Ontario, Canada, serving more than 25,000 students and ranked #193 in the QS
+  World University Rankings 2025. Its public developer footprint centers on
+  Qmulus, a community open-data API exposing Queen's datasets (courses,
+  buildings, textbooks and more), alongside library and research-data
+  infrastructure: the QSpace institutional repository (DSpace, with REST and
+  OAI-PMH interfaces) and the Queen's University Dataverse hosted on the
+  Canadian Borealis repository (Dataverse native REST plus OAI-PMH). Most of
+  these surfaces are open or community-run rather than a single official
+  university developer portal.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/queens-university-at-kingston/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Open Data
+  - Research Data
+  - Library
+  - Canada
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: queens-university-at-kingston:qmulus
+    name: Qmulus Open Data API
+    description: >-
+      Qmulus is a community-run open-data REST API providing access to Queen's
+      University datasets (such as courses, buildings, and textbooks). Access
+      requires an API token; token registration is currently restricted to
+      holders of an @queensu.ca email address. The api.qmulus.io host did not
+      resolve at the time of review, though the docs and landing site are live.
+    humanURL: https://qmulus.io/
+    baseURL: https://api.qmulus.io/v1
+    tags: [ Open Data, Courses, REST, Education ]
+    properties:
+      - type: Documentation
+        url: https://docs.qmulus.io
+      - type: SignUp
+        url: https://manage.qmulus.io/token
+      - type: GitHub
+        url: https://github.com/queens-qmulus/qmulus
+  - aid: queens-university-at-kingston:qspace
+    name: QSpace Repository API (DSpace)
+    description: >-
+      QSpace is Queen's University Library's open-access institutional
+      repository built on DSpace, hosting theses, dissertations, and
+      peer-reviewed scholarship. It exposes a DSpace REST API and an OAI-PMH
+      metadata harvesting interface for programmatic access to records.
+    humanURL: https://qspace.library.queensu.ca/
+    baseURL: https://qspace.library.queensu.ca/server/api
+    tags: [ Repository, DSpace, OAI-PMH, Research, Library ]
+    properties:
+      - type: Documentation
+        url: https://qspace.library.queensu.ca/
+      - type: OAI-PMH
+        url: https://qspace.library.queensu.ca/server/oai/request?verb=Identify
+  - aid: queens-university-at-kingston:dataverse
+    name: Queen's University Dataverse (Borealis)
+    description: >-
+      The Queen's University Dataverse is the institution's open-access research
+      data repository, hosted on Borealis, the Canadian Dataverse Repository. It
+      supports the Dataverse native REST API, OAI-PMH metadata harvesting, and
+      SWORD for programmatic deposit and access.
+    humanURL: https://borealisdata.ca/dataverse/queens
+    baseURL: https://borealisdata.ca/api
+    tags: [ Research Data, Dataverse, OAI-PMH, REST, Repository ]
+    properties:
+      - type: Documentation
+        url: https://borealisdata.ca/guides/en/latest/api/native-api.html
+      - type: OAI-PMH
+        url: https://borealisdata.ca/oai?verb=Identify
+common:
+  - type: Website
+    url: https://www.queensu.ca/
+  - type: GitHub
+    url: https://github.com/queens-qmulus
+  - type: LinkedIn
+    url: https://ca.linkedin.com/school/queen's-university/
+  - type: Library
+    url: https://library.queensu.ca/
+  - type: Plans
+    url: plans/queens-university-at-kingston-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/queens-university-at-kingston-rate-limits.yml
+  - type: FinOps
+    url: finops/queens-university-at-kingston-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

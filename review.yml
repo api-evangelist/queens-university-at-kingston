@@ -1,0 +1,51 @@
+---
+name: Queen's University at Kingston
+description: Queen's University at Kingston public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/queens-university-at-kingston/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 3
+    summary: >-
+      Queen's has a meaningful but mostly community/library-run API footprint
+      rather than a single official developer portal. Qmulus (community open
+      data) has live docs and landing pages but its api.qmulus.io host did not
+      resolve during review and token signup is gated to @queensu.ca emails. The
+      QSpace DSpace repository and the Queen's Dataverse on Borealis both expose
+      live REST and OAI-PMH interfaces verified live. No endpoints were
+      fabricated; gated and non-resolving surfaces are flagged as such.
+    endpoints:
+      - url: https://qmulus.io/
+        status: 200
+        note: Qmulus open data API landing page, live.
+      - url: https://docs.qmulus.io
+        status: 200
+        note: Qmulus API docs, live (client-side rendered).
+      - url: https://api.qmulus.io/v1
+        status: 0
+        note: Documented base URL did not resolve at review time.
+      - url: https://manage.qmulus.io/token
+        status: 0
+        note: Token signup host did not resolve; registration gated to @queensu.ca.
+      - url: https://github.com/queens-qmulus
+        status: 200
+        note: Qmulus GitHub org (qmulus, qu-scrapers, datasets), verified.
+      - url: https://qspace.library.queensu.ca/
+        status: 200
+        note: QSpace DSpace institutional repository, live.
+      - url: https://qspace.library.queensu.ca/server/oai/request?verb=Identify
+        status: 200
+        note: QSpace OAI-PMH endpoint live at DSpace 7 /server path.
+      - url: https://qspace.library.queensu.ca/server/api
+        status: 200
+        note: QSpace DSpace REST API root, live.
+      - url: https://borealisdata.ca/oai?verb=Identify
+        status: 200
+        note: Borealis Dataverse OAI-PMH (hosts Queen's Dataverse), live.
+      - url: https://www.queensu.ca/
+        status: 200
+        note: Official university website, live.
+      - url: https://library.queensu.ca/
+        status: 200
+        note: Queen's University Library, live.
