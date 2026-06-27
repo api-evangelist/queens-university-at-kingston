@@ -43,7 +43,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.qmulus.io
-      - type: SignUp
+      - type: Signup
         url: https://manage.qmulus.io/token
       - type: GitHub
         url: https://github.com/queens-qmulus/qmulus
