@@ -80,6 +80,8 @@ apis:
       - type: OpenAPI
         url: openapi/queens-university-at-kingston-dataverse.yaml
 common:
+  - type: DomainSecurity
+    url: security/queens-university-at-kingston-domain-security.yml
   - type: Website
     url: https://www.queensu.ca/
   - type: GitHub
@@ -96,6 +98,8 @@ common:
     url: finops/queens-university-at-kingston-finops.yml
   - type: Review
     url: review.yml
+  - url: https://www.queensu.ca/gazette/rss.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

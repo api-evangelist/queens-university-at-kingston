@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.queensu.ca
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  8 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 2592000
+- host: qmulus.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 19 22:25:20 2026 GMT
+  hsts: false
+- host: api.qmulus.io
+  https: false
+domains:
+- domain: queensu.ca
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: qmulus.io
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
