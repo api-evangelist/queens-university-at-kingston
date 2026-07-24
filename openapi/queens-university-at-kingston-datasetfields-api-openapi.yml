@@ -1,0 +1,19 @@
+openapi: 3.0.3
+info:
+  title: Dataverse Access Datasetfields API
+  description: Open source research data repository software.
+  version: v6.8.1-SP
+servers:
+- url: https://borealisdata.ca/api
+  description: Borealis (Canadian Dataverse Repository) hosting the Queen University Dataverse
+tags:
+- name: Datasetfields
+paths:
+  /datasetfields/facetables:
+    get:
+      operationId: DatasetFields_listAllFacetableDatasetFields
+      responses:
+        '200':
+          description: OK
+      tags:
+      - Datasetfields
