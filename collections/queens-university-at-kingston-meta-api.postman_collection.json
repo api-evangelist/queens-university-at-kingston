@@ -1,0 +1,255 @@
+{
+  "item": [
+    {
+      "id": "c26fc663-469a-4f2f-9683-fd25fb3e88cc",
+      "name": "Meta",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "341aa28f-0d0e-439a-852e-b1d4f6d60876",
+          "name": "Meta datafile",
+          "request": {
+            "name": "Meta datafile",
+            "description": {},
+            "url": {
+              "path": [
+                "meta",
+                "datafile",
+                ":fileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fileMetadataId",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "fileId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "526e51ab-9ae3-4f2d-bdd9-10a813156280",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "datafile",
+                    ":fileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exclude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fileMetadataId",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "fileId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdc8c025-286b-4e38-969d-83c30a431311",
+          "name": "Meta dataset",
+          "request": {
+            "name": "Meta dataset",
+            "description": {},
+            "url": {
+              "path": [
+                "meta",
+                "dataset",
+                ":datasetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "datasetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fea10695-604c-4938-901b-41681b078739",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "dataset",
+                    ":datasetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exclude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "datasetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://borealisdata.ca/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2c18e540-2932-4798-b15c-a433844336dd",
+    "name": "Dataverse Access Meta API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open source research data repository software.",
+      "type": "text/plain"
+    }
+  }
+}

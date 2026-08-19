@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "71350932-9510-4564-892a-b49a3bc7d05c",
+      "name": "Edit",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf7f7c78-ccd8-45ca-a3c5-16f9742f25a0",
+          "name": "Edit DDI edit",
+          "request": {
+            "name": "Edit DDI edit",
+            "description": {},
+            "url": {
+              "path": [
+                "edit",
+                ":fileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fileId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/xml"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "file",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "117ce00a-afcd-48e1-b958-a09570769242",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edit",
+                    ":fileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fileId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "file",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://borealisdata.ca/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1426042d-7d6c-4487-a5d9-3458cd304990",
+    "name": "Dataverse Access Edit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open source research data repository software.",
+      "type": "text/plain"
+    }
+  }
+}

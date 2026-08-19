@@ -1,0 +1,396 @@
+{
+  "item": [
+    {
+      "id": "f0f2a9ae-8957-4d7b-bf41-d9c2eaeecd42",
+      "name": "Builtin Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ccb169e-150f-48f4-b82e-44a520d6b53e",
+          "name": "Builtin Users save",
+          "request": {
+            "name": "Builtin Users save",
+            "description": {},
+            "url": {
+              "path": [
+                "builtin-users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendEmailNotification",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74e0dd1c-6d60-47de-852d-86f69c9d5fe3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "builtin-users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sendEmailNotification",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "179a188a-3ad7-4fbb-9f69-eec81aa85f0e",
+          "name": "Builtin Users create",
+          "request": {
+            "name": "Builtin Users create",
+            "description": {},
+            "url": {
+              "path": [
+                "builtin-users",
+                ":password",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "password",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d96f23f-c67b-4c07-b440-b21a303f5b0c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "builtin-users",
+                    ":password",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "password",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35843071-6d28-4056-aab1-32baff4fb6af",
+          "name": "Builtin Users create With Notification",
+          "request": {
+            "name": "Builtin Users create With Notification",
+            "description": {},
+            "url": {
+              "path": [
+                "builtin-users",
+                ":password",
+                ":key",
+                ":sendEmailNotification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "password",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<boolean>",
+                  "key": "sendEmailNotification",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c546bf82-7eba-42cf-b2b5-f97d34bae946",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "builtin-users",
+                    ":password",
+                    ":key",
+                    ":sendEmailNotification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "password",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<boolean>",
+                      "key": "sendEmailNotification",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1911051f-39a3-4dda-8981-66e8b831426f",
+          "name": "Builtin Users get Api Token",
+          "request": {
+            "name": "Builtin Users get Api Token",
+            "description": {},
+            "url": {
+              "path": [
+                "builtin-users",
+                ":username",
+                "api-token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b5434fa-50d6-41eb-8ffc-0e492ca3b07a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "builtin-users",
+                    ":username",
+                    "api-token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://borealisdata.ca/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "003366b4-de1f-40a0-b2ac-2cec9ad2ba87",
+    "name": "Dataverse Access Builtin Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open source research data repository software.",
+      "type": "text/plain"
+    }
+  }
+}

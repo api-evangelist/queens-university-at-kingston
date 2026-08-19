@@ -1,0 +1,719 @@
+{
+  "item": [
+    {
+      "id": "a985c469-5331-4466-aab4-6f362947d649",
+      "name": "Notifications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e86296c2-097a-481d-ab87-f5f21119cdb8",
+          "name": "Notifications get All Notifications For User",
+          "request": {
+            "name": "Notifications get All Notifications For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "inAppNotificationFormat",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d18eb34-e723-416b-88c9-6721b4d769ec",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "inAppNotificationFormat",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83ad66b1-deb8-4c3d-8767-fd23372d5684",
+          "name": "Notifications get Muted Emails For User",
+          "request": {
+            "name": "Notifications get Muted Emails For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "mutedEmails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f2d878e-2ffe-4c3c-9014-d4faff2a162e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "mutedEmails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7b22dde-b8ad-4044-9d18-ba9b2e6b81b2",
+          "name": "Notifications mute Emails For User",
+          "request": {
+            "name": "Notifications mute Emails For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "mutedEmails",
+                ":typeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "typeName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "710dfb8c-b190-41c4-9f09-8c93e2577494",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "mutedEmails",
+                    ":typeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "typeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3781f696-3454-435f-8687-36869f2a4a92",
+          "name": "Notifications unmute Emails For User",
+          "request": {
+            "name": "Notifications unmute Emails For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "mutedEmails",
+                ":typeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "typeName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "654ff5f6-5880-4cd1-b9c1-27fa99003689",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "mutedEmails",
+                    ":typeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "typeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9d80091-892e-4ea5-8613-308dc2deec8e",
+          "name": "Notifications get Muted Notifications For User",
+          "request": {
+            "name": "Notifications get Muted Notifications For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "mutedNotifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6791f26-9a93-48dc-a98b-ba59aa2d6064",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "mutedNotifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50c7b5a5-107f-46ca-8ead-b5bddb1e9256",
+          "name": "Notifications mute Notifications For User",
+          "request": {
+            "name": "Notifications mute Notifications For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "mutedNotifications",
+                ":typeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "typeName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4a88921-6b0a-4126-ae72-a92226800a1a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "mutedNotifications",
+                    ":typeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "typeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd88121a-7866-49bf-bbcf-da3a622db9d5",
+          "name": "Notifications unmute Notifications For User",
+          "request": {
+            "name": "Notifications unmute Notifications For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "mutedNotifications",
+                ":typeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "typeName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01ee0b92-b6d7-41cd-93ac-30ae06208d73",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "mutedNotifications",
+                    ":typeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "typeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bd99483-5101-4961-8836-71a9db07d7b8",
+          "name": "Notifications get Unread Notifications Count For User",
+          "request": {
+            "name": "Notifications get Unread Notifications Count For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                "unreadCount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19f9656d-ab0e-4c90-93b8-f66660b6d8d0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "unreadCount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2af1664c-1664-42f0-8b04-d6b26ca87a88",
+          "name": "Notifications delete Notification For User",
+          "request": {
+            "name": "Notifications delete Notification For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da7af87b-eac3-491d-baaf-5dc3256a2d64",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a77ca886-01d6-4df0-b280-72f2ff18b394",
+          "name": "Notifications mark Notification As Read For User",
+          "request": {
+            "name": "Notifications mark Notification As Read For User",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                ":id",
+                "markAsRead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25c44345-7562-4884-91ee-7b5b0206e035",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    ":id",
+                    "markAsRead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://borealisdata.ca/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "77cd4c90-5ef3-4060-8854-eebb460cdd5f",
+    "name": "Dataverse Access Notifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open source research data repository software.",
+      "type": "text/plain"
+    }
+  }
+}

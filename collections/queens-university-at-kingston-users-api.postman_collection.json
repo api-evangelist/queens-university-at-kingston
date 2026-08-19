@@ -1,0 +1,844 @@
+{
+  "item": [
+    {
+      "id": "2719fea3-b80c-4bd1-86e5-cf447f05b057",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b082da49-f057-4a6a-a26b-0320a266af01",
+          "name": "Users get Authenticated User By Token",
+          "request": {
+            "name": "Users get Authenticated User By Token",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9dfb2365-96fa-4490-9374-48ea0a22f1fe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba0c8c5f-efaf-4a40-8f6f-5def4c65d8e9",
+          "name": "Users register OIDC User",
+          "request": {
+            "name": "Users register OIDC User",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8874151-85d0-4684-8ce3-1e4f0478c367",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cac93a84-5eeb-4f9f-8311-aa93dc49f5a5",
+          "name": "Users get Token Expiration Date",
+          "request": {
+            "name": "Users get Token Expiration Date",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "457be4a2-f594-4564-accf-74e41e00da17",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "883aff56-a4dc-4b1b-954b-e48dfe1af4c2",
+          "name": "Users delete Token",
+          "request": {
+            "name": "Users delete Token",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e36cea5e-af3b-4bd3-b5c7-9758511323c1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a21b370-19b9-432f-9dc9-b499c51e7b34",
+          "name": "Users recreate Token",
+          "request": {
+            "name": "Users recreate Token",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "token",
+                "recreate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "returnExpiration",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37a69f5d-bdb9-4376-8ab6-e57340858399",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "token",
+                    "recreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "returnExpiration",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2372e96e-3306-4292-9dd5-1f711f595302",
+          "name": "Users merge In Authenticated User",
+          "request": {
+            "name": "Users merge In Authenticated User",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":consumedIdentifier",
+                "mergeIntoUser",
+                ":baseIdentifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "baseIdentifier",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "consumedIdentifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5394b374-3b27-46a0-9ba8-f60a7c342af6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":consumedIdentifier",
+                    "mergeIntoUser",
+                    ":baseIdentifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "baseIdentifier",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "consumedIdentifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70b39673-d832-47ad-961f-e4fe44afd36c",
+          "name": "Users get User Permitted Collections",
+          "request": {
+            "name": "Users get User Permitted Collections",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":identifier",
+                "allowedCollections",
+                ":permission"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "permission",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d8c9f71-e58d-4341-a565-b846d049e52b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":identifier",
+                    "allowedCollections",
+                    ":permission"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "permission",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12d48756-0624-43da-9b1f-1303000439a9",
+          "name": "Users change Authenticated User Identifier",
+          "request": {
+            "name": "Users change Authenticated User Identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":identifier",
+                "changeIdentifier",
+                ":newIdentifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "newIdentifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb78afb0-e7bb-4f39-8003-2b6592a3cfe4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":identifier",
+                    "changeIdentifier",
+                    ":newIdentifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "newIdentifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c244a50-741e-402c-94dd-e043e92cf5d8",
+          "name": "Users remove User Roles",
+          "request": {
+            "name": "Users remove User Roles",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":identifier",
+                "removeRoles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4431f7c-5d4f-4e42-ad77-cc0fcca32090",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":identifier",
+                    "removeRoles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a91db2f-4f78-4b01-bd5a-a285bebed59c",
+          "name": "Users get Traces",
+          "request": {
+            "name": "Users get Traces",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":identifier",
+                "traces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7519a3a-f5ff-4880-a204-7eaacd8d71e6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":identifier",
+                    "traces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "437cc686-b214-407a-b276-1e530d8d7135",
+          "name": "Users get Traces Element",
+          "request": {
+            "name": "Users get Traces Element",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":identifier",
+                "traces",
+                ":element"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "element",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "646aca0a-f140-4d40-8a11-ee87b7b305d5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":identifier",
+                    "traces",
+                    ":element"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "element",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://borealisdata.ca/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0ab7da37-d2cc-49ff-a4ac-2e16746ff65c",
+    "name": "Dataverse Access Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open source research data repository software.",
+      "type": "text/plain"
+    }
+  }
+}

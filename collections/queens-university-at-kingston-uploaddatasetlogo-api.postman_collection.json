@@ -1,0 +1,245 @@
+{
+  "item": [
+    {
+      "id": "4e42199c-6bd6-42a9-8b3a-18105614103b",
+      "name": "uploadDatasetLogo",
+      "description": {
+        "content": "Uploads a logo for a dataset",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0cffc3d6-aec7-42a4-8290-b5cafac109ac",
+          "name": "Uploads a logo for a dataset",
+          "request": {
+            "name": "Uploads a logo for a dataset",
+            "description": {
+              "content": "Uploads a logo for a dataset",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":id",
+                "thumbnail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "0",
+                  "value": "<",
+                  "type": "text",
+                  "description": "undefined"
+                },
+                {
+                  "key": "1",
+                  "value": "b",
+                  "type": "text",
+                  "description": "undefined"
+                },
+                {
+                  "key": "2",
+                  "value": "i",
+                  "type": "text",
+                  "description": "undefined"
+                },
+                {
+                  "key": "3",
+                  "value": "n",
+                  "type": "text",
+                  "description": "undefined"
+                },
+                {
+                  "key": "4",
+                  "value": "a",
+                  "type": "text",
+                  "description": "undefined"
+                },
+                {
+                  "key": "5",
+                  "value": "r",
+                  "type": "text",
+                  "description": "undefined"
+                },
+                {
+                  "key": "6",
+                  "value": "y",
+                  "type": "text",
+                  "description": "undefined"
+                },
+                {
+                  "key": "7",
+                  "value": ">",
+                  "type": "text",
+                  "description": "undefined"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "560537d4-55e7-4baf-a5c2-81e27fb0c943",
+              "name": "Dataset logo uploaded successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":id",
+                    "thumbnail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "0",
+                      "value": "<",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "1",
+                      "value": "b",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "2",
+                      "value": "i",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "3",
+                      "value": "n",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "4",
+                      "value": "a",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "5",
+                      "value": "r",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "6",
+                      "value": "y",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "undefined",
+                        "type": "text/plain"
+                      },
+                      "key": "7",
+                      "value": ">",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://borealisdata.ca/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "54c066ea-0eb9-4dc0-9b9b-b55c7e18798e",
+    "name": "Dataverse Access uploadDatasetLogo API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open source research data repository software.",
+      "type": "text/plain"
+    }
+  }
+}
