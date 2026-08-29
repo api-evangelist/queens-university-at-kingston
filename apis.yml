@@ -13,6 +13,18 @@ description: >-
   these surfaces are open or community-run rather than a single official
   university developer portal.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: unknown
@@ -603,6 +615,9 @@ apis:
   - type: OAI-PMH
     url: https://borealisdata.ca/oai?verb=Identify
 common:
+  - type: CapabilityMap
+    url: capabilities/queens-university-at-kingston-capability-edges.yml
+    name: Queen's University at Kingston Business Capability Map
   - type: AgenticAccess
     url: agentic-access/queens-university-at-kingston-agentic-access.yml
   - type: DomainSecurity
