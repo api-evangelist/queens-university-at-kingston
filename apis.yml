@@ -1,635 +1,193 @@
 ---
 aid: queens-university-at-kingston
 name: Queen's University at Kingston
+x-type: university
+x-category: Public Research University
 description: >-
-  Queen's University at Kingston is a public research university in Kingston,
-  Ontario, Canada, serving more than 25,000 students and ranked #193 in the QS
-  World University Rankings 2025. Its public developer footprint centers on
-  Qmulus, a community open-data API exposing Queen's datasets (courses,
-  buildings, textbooks and more), alongside library and research-data
-  infrastructure: the QSpace institutional repository (DSpace, with REST and
-  OAI-PMH interfaces) and the Queen's University Dataverse hosted on the
-  Canadian Borealis repository (Dataverse native REST plus OAI-PMH). Most of
-  these surfaces are open or community-run rather than a single official
-  university developer portal.
+  Queen's University at Kingston is a public research university in Kingston, Ontario, Canada — a member
+  of the U15 group of Canadian research universities, serving more than 25,000 students. Its
+  machine-readable footprint is small, and stating it honestly matters more than inflating it: Queen's
+  operates no public developer portal, no institution-run open-data API, and no published course,
+  timetable, or registrar contract. api.queensu.ca, developer.queensu.ca and data.queensu.ca do not
+  resolve. What Queen's genuinely operates and publishes on its own domain is federated identity — a
+  Shibboleth Identity Provider serving SAML 2.0 metadata at login.queensu.ca — and an authored llms.txt
+  directing AI agents to official sources. Its two research-data surfaces are real institutional facts
+  but are tenant deployments, not Queen's engineering: QSpace, the institutional repository, now runs as
+  DSpace 8.4 on Scholaris, the shared service of the Ontario Council of University Libraries, and the
+  Queen's University Dataverse Collection lives inside Borealis, the national Dataverse operated by
+  Scholars Portal. Both expose live REST and OAI-PMH interfaces, and both contracts belong to their
+  platforms. An earlier profile of this repository carried 36 OpenAPI definitions titled after Queen's;
+  every one of them was the Dataverse product's own contract, and they have been removed.
 type: Index
 deliveryModel:
-  model: saas
+  model: none
   open_source: false
-  commercial: true
-  callable_host: true
-  label: Hosted service · you call their endpoint
+  commercial: false
+  callable_host: false
+  label: No institution-operated API — programmable access is through tenant platforms
   confidence: high
   source:
-  - openapi
-  - pricing
-  generated: '2026-08-28'
-  method: derived
+  - apis.yml
+  - live probes
+  generated: '2026-08-30'
+  method: probed
 accessModel:
   pricing: free
   onboarding: unknown
   trial: false
   try_now: false
-  public: false
-  label: Free
+  public: true
+  label: Free — public repository reads are keyless; deposit and identity are affiliation-gated
   confidence: medium
   source:
   - plans
-  generated: '2026-07-22'
+  generated: '2026-08-30'
   method: derived
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/queens-university-at-kingston.png
 url: https://raw.githubusercontent.com/api-evangelist/queens-university-at-kingston/refs/heads/main/apis.yml
 tags:
-  - Education
-  - Higher Education
   - University
-  - Open Data
-  - Research Data
-  - Library
+  - Higher Education
+  - Education
   - Canada
+  - Ontario
+  - U15
+  - Public Research University
+  - Research Data
+  - Institutional Repository
+  - Identity Federation
+  - OAI-PMH
+  - Library
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
-- aid: queens-university-at-kingston:qmulus
-  name: Qmulus Open Data API
+- aid: queens-university-at-kingston:identity-federation
+  name: Queen's University Shibboleth Identity Provider (SAML 2.0 Metadata)
+  x-operator: institution
   description: >-
-    Qmulus is a community-run open-data REST API providing access to Queen's University datasets (such
-    as courses, buildings, and textbooks). Access requires an API token; token registration is currently
-    restricted to holders of an @queensu.ca email address. The api.qmulus.io host did not resolve at the
-    time of review, though the docs and landing site are live.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
+    Queen's runs its own Shibboleth Identity Provider and publishes SAML 2.0 IdP metadata as
+    application/xml at a stable, unauthenticated URL on its own registrable domain. The EntityDescriptor
+    carries entityID https://login.queensu.ca/idp/shibboleth and a shibmd:Scope of queensu.ca. This is
+    the single most substantive machine-readable surface Queen's operates itself: it is the credential
+    authority every federated Queen's service resolves to, including its repository tenants, whose REST
+    APIs advertise `shibboleth realm="DSpace REST API"` and redirect to this IdP. Consumed by relying
+    parties and federation operators, not by general developers — there is no self-service registration.
+  humanURL: https://www.queensu.ca/its/
+  baseURL: https://login.queensu.ca/idp
   tags:
-  - Open Data
-  - Courses
-  - REST
-  - Education
+  - Identity Federation
+  - Shibboleth
+  - SAML
+  - Single Sign-On
   properties:
-  - type: Documentation
-    url: https://docs.qmulus.io
-  - type: Signup
-    url: https://manage.qmulus.io/token
-  - type: GitHub
-    url: https://github.com/queens-qmulus/qmulus
-- aid: queens-university-at-kingston:qspace
-  name: QSpace Repository API (DSpace)
+  - type: SAMLMetadata
+    url: https://login.queensu.ca/idp/shibboleth
+  - type: Authentication
+    url: authentication/queens-university-at-kingston-authentication.yml
+  - type: Conformance
+    url: conformance/queens-university-at-kingston-conformance.yml
+- aid: queens-university-at-kingston:qspace-scholaris
+  name: QSpace — Queen's University Institutional Repository (DSpace on Scholaris)
+  x-operator: tenant
+  x-platform: Scholaris — Ontario Council of University Libraries / Scholars Portal (DSpace 8.4)
   description: >-
-    QSpace is Queen's University Library's open-access institutional repository built on DSpace, hosting
-    theses, dissertations, and peer-reviewed scholarship. It exposes a DSpace REST API and an OAI-PMH
-    metadata harvesting interface for programmatic access to records.
-  humanURL: https://qspace.library.queensu.ca/
-  baseURL: https://qspace.library.queensu.ca/server/api
+    QSpace is Queen's open-access institutional repository for theses, dissertations and scholarship.
+    The repository identity is unambiguously Queen's — the DSpace REST root reports dspaceName "Queens
+    University Institutional Repository" and OAI-PMH Identify returns adminEmail qspace@queensu.ca — but
+    the deployment is a tenant on Scholaris, the shared DSpace service run by OCUL / Scholars Portal.
+    The former Queen's-hosted address qspace.library.queensu.ca now 301-redirects to
+    queensu.scholaris.ca, which means the one host the contract audit read as institution-owned is in
+    fact a redirect onto a provincial platform. Public reads are keyless; the REST and OAI-PMH contracts
+    are DSpace's, so no OpenAPI is stored under this institution.
+  humanURL: https://queensu.scholaris.ca/
+  baseURL: https://queensu.scholaris.ca/server/api
   tags:
-  - Repository
+  - Institutional Repository
   - DSpace
   - OAI-PMH
   - Research
   - Library
   properties:
-  - type: Documentation
-    url: https://qspace.library.queensu.ca/
+  - type: Website
+    url: https://queensu.scholaris.ca/
   - type: OAI-PMH
-    url: https://qspace.library.queensu.ca/server/oai/request?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-access-api
-  name: Queen's University at Kingston Access API
-  description: The Access API from Queen's University at Kingston — 23 operation(s) for access.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Access
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-access-api-openapi.yml
+    url: https://queensu.scholaris.ca/server/oai/request?verb=Identify
   - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-addfilestodataset-api
-  name: Queen's University at Kingston addFilesToDataset API
-  description: Uploads a set of files to a dataset
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - addFilesToDataset
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-addfilestodataset-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-addfiletodataset-api
-  name: Queen's University at Kingston addFileToDataset API
-  description: Uploads a file for a dataset
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - addFileToDataset
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-addfiletodataset-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-addglobusfilestodataset-api
-  name: Queen's University at Kingston addGlobusFilesToDataset API
-  description: Uploads a Globus file for a dataset
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - addGlobusFilesToDataset
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-addglobusfilestodataset-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-admin-api
-  name: Queen's University at Kingston Admin API
-  description: The Admin API from Queen's University at Kingston — 131 operation(s) for admin.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Admin
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-admin-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-batch-api
-  name: Queen's University at Kingston Batch API
-  description: The Batch API from Queen's University at Kingston — 3 operation(s) for batch.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Batch
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-batch-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-builtin-users-api
-  name: Queen's University at Kingston Builtin Users API
+    url: https://guides.library.queensu.ca/
+- aid: queens-university-at-kingston:borealis-queens-dataverse
+  name: Queen's University Dataverse Collection (Borealis)
+  x-operator: tenant
+  x-platform: Borealis — Canadian Dataverse Repository, operated by Scholars Portal / OCUL
   description: >-
-    The Builtin Users API from Queen's University at Kingston — 4 operation(s) for builtin users.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
+    The Queen's University Dataverse Collection is Queen's multidisciplinary research-data repository —
+    collection alias "queens", id 41133, affiliation "Queen's University", holding 815 datasets with
+    DataCite DOIs under the Borealis prefix 10.5683. The data, the curation and the depositor guidance
+    are Queen's; the software and the API are the Dataverse project's, deployed nationally by Scholars
+    Portal. Programmatic access is via the Dataverse native REST API scoped with subtree=queens. This
+    entry records the tenant relationship deliberately: 36 per-tag OpenAPI definitions of the generic
+    Dataverse contract were previously stored here under Queen's name and have been removed.
+  humanURL: https://borealisdata.ca/dataverse/queens
+  baseURL: https://borealisdata.ca/api
+  x-baseurl-note: >-
+    The Dataverse API base is not itself a fetchable resource (bare /api returns 404 by design); the
+    Endpoint property below points at /api/info/version, probed live 2026-08-30.
   tags:
-  - Builtin Users
+  - Research Data
+  - Dataverse
+  - Open Data
+  - DataCite
+  - OAI-PMH
   properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-builtin-users-api-openapi.yml
+  - type: Website
+    url: https://borealisdata.ca/dataverse/queens
   - type: Documentation
     url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-datasetfields-api
-  name: Queen's University at Kingston Datasetfields API
-  description: >-
-    The Datasetfields API from Queen's University at Kingston — 1 operation(s) for datasetfields.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Datasetfields
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-datasetfields-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-datasets-api
-  name: Queen's University at Kingston Datasets API
-  description: The Datasets API from Queen's University at Kingston — 94 operation(s) for datasets.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Datasets
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-datasets-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-datatags-api
-  name: Queen's University at Kingston Datatags API
-  description: The Datatags API from Queen's University at Kingston — 1 operation(s) for datatags.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Datatags
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-datatags-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-dataversefeatureditems-api
-  name: Queen's University at Kingston DataverseFeaturedItems API
-  description: >-
-    The DataverseFeaturedItems API from Queen's University at Kingston — 1 operation(s) for dataversefeatureditems.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - DataverseFeaturedItems
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-dataversefeatureditems-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-dataverses-api
-  name: Queen's University at Kingston Dataverses API
-  description: The Dataverses API from Queen's University at Kingston — 40 operation(s) for dataverses.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Dataverses
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-dataverses-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-edit-api
-  name: Queen's University at Kingston Edit API
-  description: The Edit API from Queen's University at Kingston — 1 operation(s) for edit.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Edit
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-edit-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-externaltools-api
-  name: Queen's University at Kingston ExternalTools API
-  description: >-
-    The ExternalTools API from Queen's University at Kingston — 2 operation(s) for externaltools.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - ExternalTools
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-externaltools-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-files-api
-  name: Queen's University at Kingston Files API
-  description: The Files API from Queen's University at Kingston — 21 operation(s) for files.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - File
-  tags_raw:
-  - Files
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-files-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-harvest-api
-  name: Queen's University at Kingston Harvest API
-  description: The Harvest API from Queen's University at Kingston — 7 operation(s) for harvest.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Harvest
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-harvest-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-inbox-api
-  name: Queen's University at Kingston Inbox API
-  description: The Inbox API from Queen's University at Kingston — 1 operation(s) for inbox.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Inbox
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-inbox-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-info-api
-  name: Queen's University at Kingston Info API
-  description: The Info API from Queen's University at Kingston — 51 operation(s) for info.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Info
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-info-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-ingest-api
-  name: Queen's University at Kingston Ingest API
-  description: The Ingest API from Queen's University at Kingston — 1 operation(s) for ingest.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Ingest
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-ingest-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-licenses-api
-  name: Queen's University at Kingston Licenses API
-  description: The Licenses API from Queen's University at Kingston — 6 operation(s) for licenses.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Licenses
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-licenses-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-localcontexts-api
-  name: Queen's University at Kingston Localcontexts API
-  description: >-
-    The Localcontexts API from Queen's University at Kingston — 2 operation(s) for localcontexts.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Localcontexts
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-localcontexts-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-logout-api
-  name: Queen's University at Kingston Logout API
-  description: The Logout API from Queen's University at Kingston — 1 operation(s) for logout.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Logout
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-logout-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-mail-api
-  name: Queen's University at Kingston Mail API
-  description: The Mail API from Queen's University at Kingston — 1 operation(s) for mail.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Mail
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-mail-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-meta-api
-  name: Queen's University at Kingston Meta API
-  description: The Meta API from Queen's University at Kingston — 2 operation(s) for meta.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Meta
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-meta-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-metadatablocks-api
-  name: Queen's University at Kingston Metadatablocks API
-  description: >-
-    The Metadatablocks API from Queen's University at Kingston — 2 operation(s) for metadatablocks.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Metadatablocks
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-metadatablocks-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-mydata-api
-  name: Queen's University at Kingston Mydata API
-  description: The Mydata API from Queen's University at Kingston — 2 operation(s) for mydata.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Mydata
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-mydata-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-notifications-api
-  name: Queen's University at Kingston Notifications API
-  description: >-
-    The Notifications API from Queen's University at Kingston — 8 operation(s) for notifications.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Notification
-  tags_raw:
-  - Notifications
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-notifications-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-pids-api
-  name: Queen's University at Kingston Pids API
-  description: The Pids API from Queen's University at Kingston — 6 operation(s) for pids.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Pids
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-pids-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-replacefilesindataset-api
-  name: Queen's University at Kingston replaceFilesInDataset API
-  description: Replace a file to a dataset
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - replaceFilesInDataset
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-replacefilesindataset-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-roles-api
-  name: Queen's University at Kingston Roles API
-  description: The Roles API from Queen's University at Kingston — 3 operation(s) for roles.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Roles
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-roles-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: >-
-    queens-university-at-kingston:queens-university-at-kingston-saveauxiliaryfilewithversion-api
-  name: Queen's University at Kingston saveAuxiliaryFileWithVersion API
-  description: Save Auxiliary File With Version
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags: []
-  tags_raw:
-  - saveAuxiliaryFileWithVersion
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-saveauxiliaryfilewithversion-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-search-api
-  name: Queen's University at Kingston Search API
-  description: The Search API from Queen's University at Kingston — 2 operation(s) for search.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Search
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-search-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-sendfeedback-api
-  name: Queen's University at Kingston Sendfeedback API
-  description: >-
-    The Sendfeedback API from Queen's University at Kingston — 1 operation(s) for sendfeedback.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Sendfeedback
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-sendfeedback-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-uploaddatasetlogo-api
-  name: Queen's University at Kingston uploadDatasetLogo API
-  description: Uploads a logo for a dataset
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags: []
-  tags_raw:
-  - uploadDatasetLogo
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-uploaddatasetlogo-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-users-api
-  name: Queen's University at Kingston Users API
-  description: The Users API from Queen's University at Kingston — 10 operation(s) for users.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - User
-  tags_raw:
-  - Users
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-users-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
-  - type: OAI-PMH
-    url: https://borealisdata.ca/oai?verb=Identify
-- aid: queens-university-at-kingston:queens-university-at-kingston-workflows-api
-  name: Queen's University at Kingston Workflows API
-  description: The Workflows API from Queen's University at Kingston — 1 operation(s) for workflows.
-  humanURL: https://qmulus.io/
-  baseURL: https://api.qmulus.io/v1
-  tags:
-  - Workflows
-  properties:
-  - type: OpenAPI
-    url: openapi/queens-university-at-kingston-workflows-api-openapi.yml
-  - type: Documentation
-    url: https://borealisdata.ca/guides/en/latest/api/native-api.html
+  - type: Collection
+    url: https://borealisdata.ca/api/dataverses/queens
+  - type: Endpoint
+    url: https://borealisdata.ca/api/info/version
   - type: OAI-PMH
     url: https://borealisdata.ca/oai?verb=Identify
 common:
-  - type: CapabilityMap
-    url: capabilities/queens-university-at-kingston-capability-edges.yml
-    name: Queen's University at Kingston Business Capability Map
-  - type: AgenticAccess
-    url: agentic-access/queens-university-at-kingston-agentic-access.yml
-  - type: DomainSecurity
-    url: security/queens-university-at-kingston-domain-security.yml
   - type: Website
     url: https://www.queensu.ca/
-  - type: GitHub
-    url: https://github.com/queens-qmulus
-  - type: LinkedIn
-    url: https://ca.linkedin.com/school/queen's-university/
+  - type: LLMsTxt
+    url: https://www.queensu.ca/llms.txt
+  - type: IdentityFederation
+    url: https://login.queensu.ca/idp/shibboleth
+  - type: ResearchRepository
+    url: https://queensu.scholaris.ca/
+  - type: OpenData
+    url: https://borealisdata.ca/dataverse/queens
+  - type: LibraryCatalog
+    url: https://ocul-qu.primo.exlibrisgroup.com/discovery/search?vid=01OCUL_QU:QU_DEFAULT
+  - type: CourseCatalog
+    url: https://qmulus.io/
+  - type: ResearchComputing
+    url: https://cac.queensu.ca/
+  - type: AIPolicy
+    url: https://www.queensu.ca/ai/strategic-framework/guiding-principles-responsible-use
+  - type: AITooling
+    url: https://www.queensu.ca/ai/applications
   - type: Library
     url: https://library.queensu.ca/
+  - type: Support
+    url: https://www.queensu.ca/its/
+  - type: PrivacyPolicy
+    url: https://www.queensu.ca/accessandprivacy/
+  - type: GitHub
+    url: https://github.com/queens-qmulus
+  - type: Blog
+    url: https://www.queensu.ca/gazette/rss.xml
+  - type: Conformance
+    url: conformance/queens-university-at-kingston-conformance.yml
+  - type: Authentication
+    url: authentication/queens-university-at-kingston-authentication.yml
+  - type: DomainSecurity
+    url: security/queens-university-at-kingston-domain-security.yml
   - type: Plans
     url: plans/queens-university-at-kingston-plans-pricing.yml
   - type: RateLimits
@@ -638,8 +196,47 @@ common:
     url: finops/queens-university-at-kingston-finops.yml
   - type: Review
     url: review.yml
-  - url: https://www.queensu.ca/gazette/rss.xml
-    type: Blog
+x-coverage:
+  state: none
+  reason: tenant_only
+  detail: >-
+    Queen's operates no public API of its own. Every callable surface reachable under its name is a
+    tenant deployment on a shared Ontario or Canadian platform: QSpace runs as DSpace 8.4 on Scholaris
+    (OCUL / Scholars Portal) after qspace.library.queensu.ca was redirected to queensu.scholaris.ca, and
+    the Queen's University Dataverse Collection runs inside Borealis (Scholars Portal). Library
+    discovery is Ex Libris Primo on the OCUL shared instance. Two surfaces ARE genuinely Queen's own and
+    are recorded as such: the Shibboleth / SAML 2.0 IdP metadata at login.queensu.ca, and a substantive
+    authored llms.txt at www.queensu.ca. The one previously catalogued open-data API, the
+    student-built Qmulus project, is dead — api.qmulus.io and manage.qmulus.io return NXDOMAIN and its
+    GitHub org has not been pushed to since January 2023 — so its landing page is kept only as a
+    CourseCatalog pointer and it is no longer listed as an API. No institution-operated OpenAPI exists,
+    and none was generated; 36 previously stored specs were the Dataverse product's contract and were
+    removed with everything derived from them.
+  generated: '2026-08-30'
+  method: probed
+  evidence:
+  - url: https://login.queensu.ca/idp/shibboleth
+    status: 200
+  - url: https://www.queensu.ca/llms.txt
+    status: 200
+  - url: https://qspace.library.queensu.ca/server/api
+    status: 301
+  - url: https://queensu.scholaris.ca/server/api
+    status: 200
+  - url: https://queensu.scholaris.ca/server/oai/request?verb=Identify
+    status: 200
+  - url: https://borealisdata.ca/api/dataverses/queens
+    status: 200
+  - url: https://api.qmulus.io/v1
+    status: 0
+  - url: https://manage.qmulus.io/token
+    status: 0
+  - url: https://api.queensu.ca/
+    status: 0
+  - url: https://developer.queensu.ca/
+    status: 0
+  - url: https://data.queensu.ca/
+    status: 0
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
