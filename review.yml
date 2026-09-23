@@ -3,7 +3,7 @@ name: Queen's University at Kingston
 description: Queen's University at Kingston public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/queens-university-at-kingston/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 reviews:
   - date: '2026-06-03'
     rating: 3
@@ -49,3 +49,63 @@ reviews:
       - url: https://library.queensu.ca/
         status: 200
         note: Queen's University Library, live.
+  - date: '2026-08-30'
+    rating: 2
+    summary: >-
+      Re-profiled under the university pipeline's operator axis, and the rating is DOWN on purpose. The
+      June review credited Queen's with a large API footprint that it does not have: 36 OpenAPI
+      definitions titled "Queen's University at Kingston <tag> API" were the Dataverse product's own
+      contract (info.title "Dataverse API", v6.8.1-SP) served from borealisdata.ca, a national platform
+      run by Scholars Portal, and eight other institutions ship the same titles. Those 36 specs and the
+      121 files derived from them were removed. Two corrections to the June record: QSpace has MOVED —
+      qspace.library.queensu.ca now 301-redirects to queensu.scholaris.ca, a DSpace 8.4 tenant on the
+      OCUL/Scholars Portal Scholaris service, so the one host previously read as institution-owned is
+      not one; and Qmulus is dead, not merely unresolved — api.qmulus.io and manage.qmulus.io return
+      NXDOMAIN and the GitHub org's last push was January 2023. Two genuinely institution-operated
+      machine-readable surfaces were found that the June review missed: SAML 2.0 Shibboleth IdP metadata
+      at login.queensu.ca, and an authored 9.5KB llms.txt at www.queensu.ca.
+    endpoints:
+      - url: https://login.queensu.ca/idp/shibboleth
+        status: 200
+        note: >-
+          Shibboleth IdP metadata, application/xml, entityID https://login.queensu.ca/idp/shibboleth,
+          shibmd:Scope queensu.ca. Institution-operated. NEW FIND.
+      - url: https://www.queensu.ca/llms.txt
+        status: 200
+        note: 9,524-byte authored llms.txt, 12 sections of official Queen's sources. Institution-operated. NEW FIND.
+      - url: https://qspace.library.queensu.ca/server/api
+        status: 301
+        note: Redirects to https://queensu.scholaris.ca/server/api — QSpace is now a Scholaris tenant.
+      - url: https://queensu.scholaris.ca/server/api
+        status: 200
+        note: 'DSpace 8.4, dspaceName "Queens University Institutional Repository". Operator: tenant (OCUL/Scholars Portal).'
+      - url: https://queensu.scholaris.ca/server/oai/request?verb=Identify
+        status: 200
+        note: OAI-PMH 2.0 live, adminEmail qspace@queensu.ca, 13 metadata formats.
+      - url: https://borealisdata.ca/api/dataverses/queens
+        status: 200
+        note: 'Queen''s University Dataverse Collection, alias queens, id 41133, 815 datasets. Operator: tenant.'
+      - url: https://queensu.scholaris.ca/server/api/config/properties/orcid.application-client-id
+        status: 200
+        note: values = [] — ORCID integration NOT configured. Negative probe, recorded rather than assumed.
+      - url: https://api.qmulus.io/v1
+        status: 0
+        note: NXDOMAIN. Qmulus API is dead; delisted from apis[].
+      - url: https://manage.qmulus.io/token
+        status: 0
+        note: NXDOMAIN.
+      - url: https://api.queensu.ca/
+        status: 0
+        note: NXDOMAIN — no institution developer API host.
+      - url: https://developer.queensu.ca/
+        status: 0
+        note: NXDOMAIN — no developer portal.
+      - url: https://data.queensu.ca/
+        status: 0
+        note: NXDOMAIN — no institution open-data portal.
+      - url: https://www.queensu.ca/ai/strategic-framework/guiding-principles-responsible-use
+        status: 200
+        note: Institutional responsible-AI guiding principles. Recorded as AIPolicy.
+      - url: https://cac.queensu.ca/
+        status: 200
+        note: Centre for Advanced Computing — research computing, no public service-catalog API found.

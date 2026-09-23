@@ -1,0 +1,111 @@
+specification: API Evangelist Domain Standard Conformance
+specificationVersion: '0.1'
+provider: Queen's University at Kingston
+providerId: queens-university-at-kingston
+regime: education
+generated: '2026-08-30'
+method: probed
+source: live HTTP probes of Queen's University and its repository tenants, 2026-08-30
+description: >-
+  Domain-standard conformance for Queen's University at Kingston, measured against the Kin Score
+  `education` regime standards list. Every entry below is a live probe of a named URL, not a prose
+  claim read off a web page. Each carries the operator of the surface the evidence came from, because
+  a standard implemented by a shared provincial or national platform on the institution's behalf is
+  not the institution's own engineering. Standards in the regime list with no evidence are recorded
+  explicitly as not_found rather than omitted.
+conformance:
+- standard: shibboleth
+  status: conformant
+  x-operator: institution
+  detail: >-
+    Queen's operates its own Shibboleth Identity Provider and publishes SAML 2.0 IdP metadata at a
+    stable URL on its own registrable domain. The EntityDescriptor carries
+    entityID="https://login.queensu.ca/idp/shibboleth" with a shibmd:Scope of queensu.ca.
+  evidence:
+  - url: https://login.queensu.ca/idp/shibboleth
+    status: 200
+    content_type: application/xml
+    locator: /EntityDescriptor/@entityID and /EntityDescriptor/IDPSSODescriptor/Extensions/shibmd:Scope
+  - url: https://queensu.scholaris.ca/server/api/authn/status
+    status: 401
+    locator: >-
+      WWW-Authenticate advertises `shibboleth realm="DSpace REST API"` and redirects to
+      /Shibboleth.sso/Login, showing the repository federates against the Queen's IdP.
+- standard: saml
+  status: conformant
+  x-operator: institution
+  detail: >-
+    The same IdP metadata document declares SAML 2.0 support via
+    IDPSSODescriptor/@protocolSupportEnumeration = urn:oasis:names:tc:SAML:2.0:protocol, with
+    SingleSignOnService bindings and an X509 signing certificate.
+  evidence:
+  - url: https://login.queensu.ca/idp/shibboleth
+    status: 200
+    locator: /EntityDescriptor/IDPSSODescriptor/@protocolSupportEnumeration
+- standard: oai-pmh
+  status: conformant
+  x-operator: tenant
+  detail: >-
+    The Queen's University Institutional Repository (QSpace) exposes a live OAI-PMH 2.0 endpoint.
+    verb=Identify returns repositoryName "Queens University Institutional Repository" and adminEmail
+    qspace@queensu.ca, so the repository identity is Queen's — but the DSpace 8.4 instance runs on
+    Scholaris, the shared repository service operated by the Ontario Council of University Libraries /
+    Scholars Portal, so the protocol implementation is the platform's.
+  evidence:
+  - url: https://queensu.scholaris.ca/server/oai/request?verb=Identify
+    status: 200
+    locator: /OAI-PMH/Identify/repositoryName, /protocolVersion (2.0), /adminEmail
+  - url: https://queensu.scholaris.ca/server/oai/request?verb=ListMetadataFormats
+    status: 200
+    locator: >-
+      metadataPrefix values oai_dc, qdc, mods, mets, ore, didl, dim, rdf, marc, etdms, rioxx,
+      uketd_dc, xoai
+  - url: https://borealisdata.ca/oai?verb=Identify
+    status: 200
+    locator: >-
+      Second OAI-PMH surface — Borealis Dataverse OAI Archive, which carries the Queen's University
+      Dataverse Collection. Operated by Scholars Portal, not by Queen's.
+- standard: datacite
+  status: conformant
+  x-operator: tenant
+  detail: >-
+    Research data deposited to the Queen's University Dataverse Collection is issued DataCite DOIs
+    under the Borealis prefix 10.5683, and the Borealis OAI-PMH archive serves DataCite metadata
+    formats. The DOI registration agreement is Scholars Portal's; Queen's is the depositing
+    institution, not the registrant.
+  evidence:
+  - url: https://borealisdata.ca/oai?verb=ListMetadataFormats
+    status: 200
+    locator: metadataPrefix values `Datacite` and `oai_datacite`
+  - url: https://borealisdata.ca/api/search?q=*&subtree=queens&type=dataset&per_page=1
+    status: 200
+    locator: >-
+      items[0].global_id = doi:10.5683/SP3/IAJUVL across 815 datasets in the queens subtree
+not_found:
+- standard: orcid
+  detail: >-
+    Probed directly and negative — the DSpace instance reports
+    orcid.application-client-id with an EMPTY values array, so ORCID integration is not configured.
+  evidence:
+  - url: https://queensu.scholaris.ca/server/api/config/properties/orcid.application-client-id
+    status: 200
+    locator: values = []
+- standard: scim
+  detail: No SCIM 2.0 endpoint or published provisioning contract found on any queensu.ca host.
+- standard: lti
+  detail: >-
+    Queen's runs onQ (D2L Brightspace) as its LMS and LTI tool registration is presumably used
+    internally, but no LTI registration, tool configuration, or platform contract is published on a
+    Queen's host. Not recorded — an internal integration that publishes nothing is not conformance.
+- standard: oneroster
+  detail: No OneRoster surface found.
+- standard: ed-fi
+  detail: No Ed-Fi surface found; Ed-Fi is a K-12 standard and is not expected here.
+- standard: caliper
+  detail: No Caliper Analytics endpoint or sensor documentation published.
+- standard: qti
+  detail: No QTI item bank or assessment interchange surface published.
+- standard: crossref
+  detail: >-
+    No Crossref member DOI prefix operated by Queen's was found; research data DOIs run through
+    DataCite via Borealis instead.

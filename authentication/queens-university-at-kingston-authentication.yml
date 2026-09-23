@@ -1,0 +1,54 @@
+generated: '2026-08-30'
+method: probed
+source: >-
+  https://login.queensu.ca/idp/shibboleth (SAML 2.0 IdP metadata) and
+  https://queensu.scholaris.ca/server/api/authn/status (WWW-Authenticate challenge), probed 2026-08-30
+provider: Queen's University at Kingston
+providerId: queens-university-at-kingston
+note: >-
+  Queen's publishes no public API key, OAuth application registration, or developer credential flow of
+  its own — there is no institution-operated public API to authenticate against. What it does operate,
+  and publish machine-readably, is federated identity: a Shibboleth Identity Provider on its own domain
+  serving SAML 2.0 metadata. That is the institution's real authentication surface and the one recorded
+  here. The token flows of its repository tenants belong to the platforms that run them (DSpace on
+  Scholaris, Dataverse on Borealis) and are not restated as Queen's own.
+summary:
+  types:
+  - saml2
+  api_key_in: []
+  oauth2_flows: []
+  self_service_signup: false
+schemes:
+- name: Shibboleth / SAML 2.0 Single Sign-On
+  type: saml2
+  x-operator: institution
+  documented: true
+  entity_id: https://login.queensu.ca/idp/shibboleth
+  metadata_url: https://login.queensu.ca/idp/shibboleth
+  scope: queensu.ca
+  protocol_support: urn:oasis:names:tc:SAML:2.0:protocol
+  detail: >-
+    IdP metadata is served as application/xml at a stable, unauthenticated URL, carrying an
+    IDPSSODescriptor, an X509 signing certificate, and a shibmd:Scope of queensu.ca. This is the
+    credential surface every federated Queen's service — including its repository tenants — resolves to.
+- name: DSpace REST API authentication (QSpace on Scholaris)
+  type: multiple
+  x-operator: tenant
+  documented: true
+  detail: >-
+    The Queen's institutional repository REST API answers unauthenticated requests with
+    `WWW-Authenticate: password realm="DSpace REST API", shibboleth realm="DSpace REST API",
+    ip realm="DSpace REST API"` and a Shibboleth login location. Read access to public records needs no
+    credential at all. The scheme is DSpace's, deployed by OCUL / Scholars Portal.
+  evidence:
+  - url: https://queensu.scholaris.ca/server/api/authn/status
+    locator: WWW-Authenticate response header
+- name: Dataverse API token (Queen's collection on Borealis)
+  type: apiKey
+  x-operator: tenant
+  documented: true
+  detail: >-
+    Deposit and management operations against the Queen's University Dataverse Collection use a
+    Dataverse API token passed in the X-Dataverse-key header. Tokens are issued by Borealis, not by
+    Queen's; public search and metadata reads are keyless.
+  docs: https://borealisdata.ca/guides/en/latest/api/native-api.html
